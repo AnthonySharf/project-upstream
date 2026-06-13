@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"/c/Users/antho/Downloads/first-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/first.png\")",
+      "Bash(cp \"/c/Users/antho/Downloads/second-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/second.png\")",
+      "Bash(cp \"/c/Users/antho/Downloads/third-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/third.png\")",
+      "Bash(cp \"/c/Users/antho/Downloads/fourth-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/fourth.png\")",
+      "Bash(cp \"/c/Users/antho/Downloads/fifth-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/fifth.png\")"
+    ]
+  }
+}
