@@ -66,7 +66,7 @@ export default function Landing() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            paddingTop: '10px',
+            paddingTop: '36px',
             paddingBottom: '22px',
             backgroundImage: DOTS_PINK,
             backgroundRepeat: 'repeat-x',
@@ -124,7 +124,7 @@ export default function Landing() {
               onMouseLeave={() => setWordmarkHovered(false)}
               style={{
                 position: 'absolute',
-                top: '24px',
+                top: '40px',
                 left: 0,
                 right: 0,
                 margin: 'auto',
@@ -142,7 +142,7 @@ export default function Landing() {
                 alignItems: 'center',
                 gap: 10,
                 fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: '72px',
+                fontSize: '96px',
                 fontWeight: 900,
                 color: wordmarkHovered ? '#ff335f' : '#242a49',
                 lineHeight: 1,
@@ -154,7 +154,7 @@ export default function Landing() {
                 <img
                   src={upstreamLogo}
                   alt=""
-                  style={{ height: 52, width: 'auto', display: 'block' }}
+                  style={{ height: 70, width: 'auto', display: 'block' }}
                 />
                 <span>Upstream</span>
               </div>
@@ -303,26 +303,19 @@ export default function Landing() {
         <div>
           <section style={{
             backgroundImage: DATA_PILLS_BG,
-            backgroundSize: 'contain',
+            backgroundSize: '135.9%',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center center',
-            fontSize: '30px',
             lineHeight: 1.1,
             margin: '0 auto',
-            maxWidth: '35ch',
-            padding: '140px 0',
+            maxWidth: '50ch',
+            padding: '160px 0',
             textAlign: 'center',
           }}>
-            {/*
-              .mission__primary
-              font-family: ivar-display (→ Playfair Display)
-              font-size: size05 = 36px, line-height: 1.1
-              padding: 0 20px
-            */}
             <h1 style={{
               fontFamily: "'Bebas Neue', sans-serif",
               fontWeight: 700,
-              fontSize: '36px',
+              fontSize: '46px',
               lineHeight: 1.1,
               color: '#000',
               margin: 0,
@@ -331,14 +324,10 @@ export default function Landing() {
               Project Upstream exists because your community's water is funding the internet.
             </h1>
 
-            {/*
-              .mission__secondary
-              font-size: size02 = 21px, line-height: 1.4, margin-top: 12px
-            */}
             <div style={{
-              fontSize: '21px',
-              lineHeight: 1.4,
-              marginTop: '12px',
+              fontSize: '22px',
+              lineHeight: 1.5,
+              marginTop: '19px',
               color: '#000',
             }}>
               <p style={{ margin: 0, padding: '0 20px' }}>
@@ -356,7 +345,7 @@ export default function Landing() {
       </main>
 
       {/* ── Scrollytelling ── */}
-      <div style={{ height: '80px' }} />
+      <div style={{ height: '50px' }} />
       <div ref={scrollyRef} style={{ height: '500vh', position: 'relative' }}>
         {/* Scroll indicator — sits above sticky panel */}
         <div style={{

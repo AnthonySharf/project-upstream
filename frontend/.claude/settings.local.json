@@ -5,7 +5,10 @@
       "Bash(cp \"/c/Users/antho/Downloads/second-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/second.png\")",
       "Bash(cp \"/c/Users/antho/Downloads/third-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/third.png\")",
       "Bash(cp \"/c/Users/antho/Downloads/fourth-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/fourth.png\")",
-      "Bash(cp \"/c/Users/antho/Downloads/fifth-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/fifth.png\")"
+      "Bash(cp \"/c/Users/antho/Downloads/fifth-removebg-preview.png\" \"/c/Users/antho/OneDrive/Desktop/ProjectUpstream/frontend/src/assets/fifth.png\")",
+      "Bash(pkill -f \"uvicorn main:app\")",
+      "Bash(uvicorn main:app --reload --port 8000)",
+      "Bash(curl -s http://localhost:8000/docs)"
     ]
   }
 }

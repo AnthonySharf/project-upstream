@@ -7,6 +7,7 @@ import Landing from './Landing.jsx'
 import About from './About.jsx'
 import Methodology from './Methodology.jsx'
 import ComingSoon from './ComingSoon.jsx'
+import Act from './Act.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/about" element={<About />} />
         <Route path="/methodology" element={<Methodology />} />
         <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/act" element={<Act />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

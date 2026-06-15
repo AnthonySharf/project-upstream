@@ -9,7 +9,13 @@ export default defineConfig({
         target: 'http://127.0.0.1:8000',
         changeOrigin: true,
         rewrite: (path) => path,
-      }
+      },
+      '/county-brief': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      },
+      '/representatives': { target: 'http://127.0.0.1:8003', changeOrigin: true },
+      '/generate-letter': { target: 'http://127.0.0.1:8003', changeOrigin: true },
     }
   }
 })

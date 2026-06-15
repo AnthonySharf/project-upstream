@@ -1,8 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 *)",
-      "Bash(venv\\\\Scripts\\\\activate)",
       "Bash(pip install *)"
     ]
   }

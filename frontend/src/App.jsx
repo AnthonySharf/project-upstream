@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import TopBar from './TopBar';
 import { Link } from 'react-router-dom';
 import upstreamLogo from './assets/upstream-removebg-preview.png';
 import Map from 'react-map-gl/maplibre';
@@ -221,7 +222,7 @@ function SBadge({ label }) {
     <span style={{
       fontSize: 11,
       padding: '2px 8px',
-      borderRadius: 9999,
+      borderRadius: 0,
       background: '#f5f5f0',
       color: '#6b7280',
       marginRight: 4,
@@ -340,7 +341,7 @@ function Sidebar({ facility, detail, onClose }) {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {epa.map((rec, i) => (
-            <div key={i} style={{ padding: '7px 8px', background: '#f5f5f0', borderRadius: 6 }}>
+            <div key={i} style={{ padding: '7px 8px', background: '#f5f5f0', borderRadius: 0 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                 <span style={{ fontSize: 11, fontWeight: 600, color: '#1a1a1a' }}>{rec.program}</span>
                 {rec.penalty_amount != null && (
@@ -361,10 +362,10 @@ function Sidebar({ facility, detail, onClose }) {
       <button style={{
         width: '100%',
         padding: 10,
-        background: '#1a1a1a',
+        backgroundColor: '#242a49',
         color: '#ffffff',
-        border: 'none',
-        borderRadius: 8,
+        border: '1px solid #242a49',
+        borderRadius: 0,
         fontSize: 14,
         fontWeight: 500,
         marginTop: 20,
@@ -389,12 +390,11 @@ function Legend({ tab, counts }) {
       bottom: 64,
       right: 16,
       zIndex: 10,
-      background: T.card,
-      backdropFilter: 'blur(12px)',
-      border: `1px solid ${T.border}`,
-      borderRadius: 8,
+      backgroundColor: '#ffffff',
+      border: '1px solid #242a49',
+      borderRadius: 0,
       padding: '10px 12px',
-      boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+      boxShadow: '4px 4px 0px #242a49',
       minWidth: 160,
       fontFamily: T.font,
     }}>
@@ -449,11 +449,10 @@ function TabBar({ active, onChange, count }) {
       zIndex: 20,
       display: 'flex',
       alignItems: 'center',
-      background: T.card,
-      backdropFilter: 'blur(12px)',
-      border: `1px solid ${T.border}`,
-      borderRadius: 16,
-      boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+      backgroundColor: '#ffffff',
+      border: '1px solid #242a49',
+      borderRadius: 0,
+      boxShadow: '4px 4px 0px #242a49',
       fontFamily: T.font,
     }}>
       {/* filter icon */}
@@ -462,6 +461,7 @@ function TabBar({ active, onChange, count }) {
         padding: '0 12px',
         background: 'none',
         border: 'none',
+        borderRight: '1px solid #e5e5e0',
         color: '#9ca3af',
         cursor: 'pointer',
         display: 'flex',
@@ -471,7 +471,7 @@ function TabBar({ active, onChange, count }) {
       </button>
 
       {/* divider */}
-      <div style={{ width: 1, height: 24, background: T.border }} />
+      <div style={{ width: 1, height: 24, background: '#e5e5e0' }} />
 
       {/* tabs */}
       <div style={{ display: 'flex', alignItems: 'center', padding: '4px 6px', gap: 2 }}>
@@ -485,10 +485,11 @@ function TabBar({ active, onChange, count }) {
                 padding: '6px 12px',
                 fontSize: 14,
                 fontWeight: 500,
-                borderRadius: 9999,
+                borderRadius: 0,
                 border: 'none',
+                borderBottom: isActive ? '2px solid #ff335f' : '2px solid transparent',
                 cursor: 'pointer',
-                background: isActive ? '#1a1a1a' : 'none',
+                background: isActive ? '#242a49' : 'none',
                 color: isActive ? '#ffffff' : '#6b7280',
                 transition: 'background 0.15s, color 0.15s',
                 fontFamily: T.font,
@@ -502,7 +503,7 @@ function TabBar({ active, onChange, count }) {
       </div>
 
       {/* divider */}
-      <div style={{ width: 1, height: 24, background: T.border }} />
+      <div style={{ width: 1, height: 24, background: '#e5e5e0' }} />
 
       {/* count */}
       <span style={{
@@ -533,17 +534,18 @@ function TitleCard() {
       <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
         <img src={upstreamLogo} alt="" style={{ height: 25, width: 'auto', display: 'block' }} />
         <h1 style={{
-          margin: 0,
-          fontSize: 28,
+          margin: '4px 0 0',
           fontWeight: 700,
           color: '#1a1a1a',
           fontFamily: "'Bebas Neue', sans-serif",
+          fontSize: 24,
+          letterSpacing: '0.02em',
           lineHeight: 1.1,
         }}>
           Project Upstream
         </h1>
       </Link>
-      <p style={{ margin: '2px 0 0', fontSize: 14, color: '#6b7280' }}>
+      <p style={{ margin: '2px 0 0', fontSize: 14, color: '#6b7280', fontFamily: 'Inter, sans-serif' }}>
         Water &amp; energy footprint of U.S. data centers
       </p>
     </div>
@@ -636,7 +638,9 @@ export default function App() {
   const sidebarOpen = selected != null;
 
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#f5f5f0', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <TopBar />
+      <div style={{ flex: 1, position: 'relative', overflow: 'hidden', background: '#f5f5f0' }}>
 
       {/* Map + deck.gl */}
       <div style={{ position: 'absolute', inset: 0, right: sidebarOpen ? 320 : 0 }}>
@@ -797,6 +801,7 @@ export default function App() {
         detail={detailData}
         onClose={() => { setSelected(null); setDetailData(null); }}
       />
+      </div>
     </div>
   );
 }

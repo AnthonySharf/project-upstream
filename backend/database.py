@@ -25,6 +25,10 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import DeclarativeBase, Session, relationship
 
+from sqlalchemy import Column, Integer, String, JSON, DateTime, Boolean
+from datetime import datetime
+
+
 load_dotenv()
 
 DATABASE_URL = os.getenv(
@@ -180,6 +184,19 @@ class EPACompliance(Base):
 
     facility = relationship("Facility", back_populates="epa_compliance")
 
+# ---------------------------------------------------------------------------
+# Table 5: county_briefs (for caching API responses)
+# ---------------------------------------------------------------------------
+
+class CountyBrief(Base):
+    __tablename__ = "county_briefs"
+    
+    id = Column(Integer, primary_key=True)
+    county = Column(String, nullable=False)
+    state = Column(String, nullable=False)
+    data = Column(JSON, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow)
+    is_live = Column(Boolean, default=False)
 
 # ---------------------------------------------------------------------------
 # Init helper
@@ -205,3 +222,5 @@ def get_session() -> Session:
 
 if __name__ == "__main__":
     init_db()
+
+
