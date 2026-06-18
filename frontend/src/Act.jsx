@@ -33,7 +33,7 @@ export default function Act() {
   const [countyBrief, setCountyBrief] = useState(null)
 
   useEffect(() => {
-    fetch('/facilities')
+    fetch(`${import.meta.env.VITE_API_URL}/facilities`)
       .then(r => r.json())
       .then(data => {
         const planned = (data.features ?? []).filter(f =>
@@ -98,7 +98,7 @@ export default function Act() {
           setCountyInfo(location)
           setRepsLoading(true)
           try {
-            const repsRes = await fetch(`/representatives?lat=${parsedLat}&lon=${parsedLon}`)
+            const repsRes = await fetch(`${import.meta.env.VITE_API_URL}/representatives?lat=${parsedLat}&lon=${parsedLon}`)
             const repsData = await repsRes.json()
             console.log("REPS DATA:", repsData)
             setRepresentatives(repsData.officials ?? [])
@@ -127,8 +127,8 @@ export default function Act() {
 
     try {
       const [briefRes, letterRes] = await Promise.all([
-        fetch(`/county-brief?lat=${searchResult.lat}&lon=${searchResult.lon}&county=${encodeURIComponent(countyInfo.county)}&state=${encodeURIComponent(countyInfo.state)}`),
-        fetch(`/generate-letter?county=${encodeURIComponent(countyInfo.county)}&state=${encodeURIComponent(countyInfo.state)}${facilityId ? `&facility_id=${facilityId}` : ''}&representative_name=${encodeURIComponent(repName)}&representative_office=${encodeURIComponent(repOffice)}`)
+        fetch(`${import.meta.env.VITE_API_URL}/county-brief?lat=${searchResult.lat}&lon=${searchResult.lon}&county=${encodeURIComponent(countyInfo.county)}&state=${encodeURIComponent(countyInfo.state)}`),
+        fetch(`${import.meta.env.VITE_API_URL}/generate-letter?county=${encodeURIComponent(countyInfo.county)}&state=${encodeURIComponent(countyInfo.state)}${facilityId ? `&facility_id=${facilityId}` : ''}&representative_name=${encodeURIComponent(repName)}&representative_office=${encodeURIComponent(repOffice)}`)
       ])
       const [briefData, letterData] = await Promise.all([briefRes.json(), letterRes.json()])
       setCountyBrief(briefData)

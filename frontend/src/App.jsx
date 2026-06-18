@@ -599,7 +599,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetch('/facilities')
+    fetch(`${import.meta.env.VITE_API_URL}/facilities`)
       .then(r => r.json())
       .then(data => setFacilities(data.features ?? []))
       .catch(err => console.error('Failed to load facilities:', err));
@@ -609,7 +609,7 @@ export default function App() {
     if (!object) return;
     setSelected(object);
     setDetailData(null);
-    fetch(`/facilities/${object.properties.id}`)
+    fetch(`${import.meta.env.VITE_API_URL}/facilities/${object.properties.id}`)
       .then(r => r.json())
       .then(data => setDetailData(data))
       .catch(err => console.error('Failed to load facility detail:', err));
