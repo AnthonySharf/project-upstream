@@ -49,7 +49,10 @@ app = FastAPI(title="Project Upstream API", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://project-upstream.netlify.app",
+    ],
     allow_credentials=True,
     allow_methods=["GET"],
     allow_headers=["*"],
